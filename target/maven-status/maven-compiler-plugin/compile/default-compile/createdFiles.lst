@@ -1,0 +1,6 @@
+com\sergioarboleda\caharrero\CacharreroApplication.class
+com\sergioarboleda\caharrero\app\model\User.class
+com\sergioarboleda\caharrero\app\repositories\crud\UserCrudRepository.class
+com\sergioarboleda\caharrero\app\repositories\UserRepository.class
+com\sergioarboleda\caharrero\controllers\UserController.class
+com\sergioarboleda\caharrero\app\services\UserServices.class
