@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<style>
+    body {
+
+        margin: 0;
+        padding: 0;
+        background-image: url("img/pexels-pixabay-50711.jpg");
+        background-size: cover;
+        height: 100vh;
+    }
+
+    a {
+        color: black;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light navbar-fixed-top ">
+
+        <div class="container-fluid ">
+            <div class="navbar-header">
+                <a class="navbar-brand">
+                    <img src="img/logoCacharrero.png" alt="" width="200" height="50">
+                </a>
+                <a class="navbar-brand active" href="index.html">Inicio</a>
+                <a class="navbar-brand active" href="UserRegister.html">Registro Usuario</a>
+                <a class="navbar-brand" href="adminUser.html">Administrador Usuario</a>
+                <a class="navbar-brand" href="productRegister.html">Creación de Productos</a>
+                <a class="navbar-brand" href="adminProducts.html">Administración de Productos</a>
+            </div>
+
+    </nav>
+
+    <div class="container-fluid bg-light">
+        <p id="mensaje"></p>
+        <br>
+        <h5>Administrador, en esta sección podrá consultar, editar y eliminar coordinadores de zona y asesores
+            comerciales de la base de datos</h5>
+        <br>
+        <div class="form bg-light">
+
+            <div class="row justify-content-center bg-light">
+                <div class="col-4">
+
+                    <button type="button" class="btn btn-outline-dark w-100 btn-block" onclick="consultarUser()"
+                        id="btnCrear">Consultar</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <table class="table table-bordered table-striped bg-light">
+                    <thead>
+                        <tr>
+                            <th>Identificación</th>
+                            <th>Nombres</th>
+                            <th>Email</th>
+                            <th>Tipo de Usuario</th>
+                            <th>Zona</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="cuerpo" id="contenidoTabla">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="updateCloudModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Actualizar Usuario <span
+                                id="ActualizarNombreCloud"></span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <label for="name">Identificación</label>
+                                <input class="form-control form-control-lg formularioPrincipal" type="text"
+                                    placeholder="52567567" id="identificacionUpdateUser">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <label for="brand">Nombres</label>
+                                <input class="form-control form-control-lg formularioPrincipal" type="text"
+                                    placeholder="Pedro Perez" id="nombreUpdateUser">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <label for="year">Dirección</label>
+                                <input class="form-control form-control-lg formularioPrincipal" type="text"
+                                    placeholder="Calle 13" id="direccionUpdateUser">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <label for="description">Celular</label>
+                                    <input class="form-control form-control-lg" type="number" placeholder="320202400"
+                                        id="celularUpdateUser">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <label for="description">Email</label>
+                                    <input class="form-control form-control-lg" type="email"
+                                        placeholder="pedro@gmail.com" id="emailUpdateUser">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <label for="description">Clave</label>
+                                    <input class="form-control form-control-lg" type="password"
+                                        placeholder="claveNoSecreta" id="claveUpdateUser">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <label for="description">Zona</label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="Zona1"
+                                        id="zonaUpdateUser">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center form-row align-items-center">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <label for="description">Zona</label>
+                                    <select name="user" class="form-control" id="typeUpdateUser" required>
+                                        <option selected value="zoneCoordinator">Selecciona tipo de usuario</option>
+                                        <option value="COORD">Coordinador de Zona</option>
+                                        <option value="ASE">Asesor Comercial</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="actualizarUser()"
+                        id="btnActualizar">Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+        crossorigin="anonymous"></script>
+    <script src="js/adminUser.js"></script>
+</body>
+
+</html>

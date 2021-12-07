@@ -1,0 +1,32 @@
+.rounded-circle{
+    width: 8%;
+}
+
+
+
+body {
+    margin: 0;
+        padding: 0;
+        background-image: url(img/images.jpg);
+        background-size: cover;
+        height: 100vh;
+}
+
+
+
+.form-label{
+    font-weight: bold;
+    color:white;
+}
+
+.modal-header {color:white}
+.modal-content{
+    background-color: black;
+
+}
+.alumna { margin-left: 500pt;
+         size: 16px;}
+
+.button{font-weight: bolder;}
+
+h1 {color:white}
